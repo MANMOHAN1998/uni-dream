@@ -276,12 +276,14 @@ const ServicesSection = () => {
         </div>
 
         {/* Category Tabs */}
-        <div className="category-tabs">
+        <div className="category-tabs" role="tablist" aria-label="Service categories">
           {categories.map((category) => (
             <button
               key={category.id}
               className={`tab-button ${activeCategory === category.id ? 'active' : ''}`}
               onClick={() => setActiveCategory(category.id)}
+              role="tab"
+              aria-selected={activeCategory === category.id}
             >
               {category.name}
             </button>
@@ -298,7 +300,7 @@ const ServicesSection = () => {
                 onClick={prevSlide}
                 aria-label="Previous slide"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" focusable="false">
                   <path d="M15 18l-6-6 6-6"/>
                 </svg>
               </button>
@@ -308,7 +310,7 @@ const ServicesSection = () => {
                 onClick={nextSlide}
                 aria-label="Next slide"
               >
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true" focusable="false">
                   <path d="M9 18l6-6-6-6"/>
                 </svg>
               </button>
@@ -323,7 +325,7 @@ const ServicesSection = () => {
               }}
             >
               {Array.from({ length: maxSlides }).map((_, slideIndex) => (
-                <div key={slideIndex} className="carousel-slide">
+                <div key={slideIndex} className="carousel-slide" role="group" aria-roledescription="slide" aria-label={`${slideIndex + 1} of ${maxSlides}`}>
                   {filteredServices
                     .slice(slideIndex * itemsPerSlide, (slideIndex + 1) * itemsPerSlide)
                     .map((service, index) => (
@@ -331,6 +333,10 @@ const ServicesSection = () => {
                         key={service.id} 
                         className="service-card"
                         onClick={() => setSelectedService(service)}
+                        onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setSelectedService(service); } }}
+                        tabIndex={0}
+                        role="button"
+                        aria-label={`View details for ${service.title}`}
                         style={{
                           animationDelay: `${index * 0.1}s`
                         }}
@@ -402,7 +408,7 @@ const ServicesSection = () => {
 
         {/* Service Detail Modal */}
         {selectedService && (
-          <div className="modal-overlay" onClick={() => setSelectedService(null)}>
+          <div className="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="service-modal-title" onClick={() => setSelectedService(null)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <div className="modal-header">
                 <div className="modal-icon">
@@ -412,12 +418,13 @@ const ServicesSection = () => {
                   <div className="modal-category">
                     {getCategoryName(selectedService.category)}
                   </div>
-                  <h2 className="modal-title">{selectedService.title}</h2>
+                  <h2 id="service-modal-title" className="modal-title">{selectedService.title}</h2>
                   <div className="modal-duration">{selectedService.duration}</div>
                 </div>
                 <button 
                   className="modal-close"
                   onClick={() => setSelectedService(null)}
+                  aria-label="Close details"
                 >
                   ×
                 </button>

@@ -58,7 +58,7 @@ const ContactUs = () => {
           <div className="contact-form-section">
             <div className="form-wrapper">
               <h3 className="form-title">Send Us a Message</h3>
-              <form className="contact-form" onSubmit={handleSubmit}>
+              <form className="contact-form" onSubmit={handleSubmit} aria-describedby="contact-form-help">
                 <div className="form-row">
                   <div className="form-group">
                     <label htmlFor="name">Full Name</label>
@@ -106,6 +106,7 @@ const ContactUs = () => {
                     placeholder="Tell us about your project requirements..."
                     rows="5"
                     required
+                    aria-describedby="contact-form-help"
                   ></textarea>
                 </div>
                 <button 
@@ -125,14 +126,17 @@ const ContactUs = () => {
                     </>
                   )}
                 </button>
+                <p id="contact-form-help" className="visually-hidden" style={{position:'absolute',left:'-10000px',width:'1px',height:'1px',overflow:'hidden'}}>
+                  All fields marked required must be filled. We’ll never share your information.
+                </p>
                 {submitStatus === 'success' && (
-                  <div className="status-message success">
+                  <div className="status-message success" role="status" aria-live="polite">
                     <span className="status-icon">✅</span>
                     <span>Message sent successfully! We'll get back to you soon.</span>
                   </div>
                 )}
                 {submitStatus === 'error' && (
-                  <div className="status-message error">
+                  <div className="status-message error" role="alert" aria-live="assertive">
                     <span className="status-icon">❌</span>
                     <span>Failed to send message. Please try again.</span>
                   </div>

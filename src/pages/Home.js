@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div className="home">
             {/* Hero Section */}
-            <section id="home" className="hero-section">
+            <section id="home" className="hero-section" aria-label="Hero">
                 <div className="hero-background">
                     <div className="hero-gradient"></div>
                     <div className="hero-pattern"></div>
@@ -114,17 +114,20 @@ Join us on a journey of empowerment and discovery.
             </section>
 
             {/* Services Section */}
-            <div id="services">
+            <div id="services" role="region" aria-labelledby="services-heading">
+                <h2 id="services-heading" className="sr-only" style={{position:'absolute',left:'-10000px',width:'1px',height:'1px',overflow:'hidden'}}>Services</h2>
                 <ServicesSection />
             </div>
             
             {/* About Section */}
-            <div id="about">
+            <div id="about" role="region" aria-labelledby="about-heading">
+                <h2 id="about-heading" className="sr-only" style={{position:'absolute',left:'-10000px',width:'1px',height:'1px',overflow:'hidden'}}>About</h2>
                 <AboutCompany />
             </div>
             
             {/* Contact Us Section */}
-            <div id="contact">
+            <div id="contact" role="region" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" className="sr-only" style={{position:'absolute',left:'-10000px',width:'1px',height:'1px',overflow:'hidden'}}>Contact</h2>
                 <ContactUs />
             </div>
             

@@ -135,12 +135,12 @@ const ServicesCarousel = () => {
                     </p>
                 </div>
                 
-                <div className="services-carousel" data-animate id="services-carousel">
+                <div className="services-carousel" data-animate id="services-carousel" role="region" aria-label="Services carousel">
                     <div className="services-track" style={{
                         transform: `translateX(-${(currentServiceIndex / 3) * 100}%)`
                     }}>
                         {services.map((service, index) => (
-                            <div key={service.id} className="service-card">
+                            <div key={service.id} className="service-card" role="group" aria-roledescription="slide" aria-label={`${index + 1} of ${services.length}`}>
                                 <div className="card-background">
                                     <div className="card-gradient"></div>
                                     <div className="card-pattern"></div>
@@ -184,14 +184,14 @@ const ServicesCarousel = () => {
                                         ))}
                                     </div>
                                     <div className="service-actions">
-                                        <button className="service-btn primary">
+                                        <button className="service-btn primary" aria-label={`Get started with ${service.title}`}>
                                             <span className="btn-text">Get Started</span>
                                             <span className="btn-icon">🚀</span>
-                                            <div className="btn-glow"></div>
+                                            <div className="btn-glow" aria-hidden="true"></div>
                                         </button>
-                                        <button className="service-btn secondary">
+                                        <button className="service-btn secondary" aria-label={`Learn more about ${service.title}`}>
                                             <span className="btn-text">Learn More</span>
-                                            <span className="btn-icon">→</span>
+                                            <span className="btn-icon" aria-hidden="true">→</span>
                                         </button>
                                     </div>
                                 </div>
