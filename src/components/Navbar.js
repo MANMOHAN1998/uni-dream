@@ -17,7 +17,7 @@ const Navbar = () => {
       // Determine if navbar should be hidden
       if (currentScrollY > lastScrollY && currentScrollY > 100 && !isOpen) {
         // Scrolling down & past 100px & menu not open
-        setHidden(true);
+        setHidden(false);
       } else if (currentScrollY < lastScrollY || currentScrollY <= 100) {
         // Scrolling up or near top
         setHidden(false);
@@ -69,61 +69,68 @@ const Navbar = () => {
         behavior: 'smooth'
       });
     }
-    closeMenu();
+    // closeMenu();
   };
 
   const handleLogoClick = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
-    closeMenu();
+    // closeMenu();
   };
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''} ${hidden ? 'navbar-hidden' : ''}`}>
+    <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''} ${hidden ? 'navbar-hidden' : ''}`} role="navigation" aria-label="Primary">
       <div className="navbar-container">
-        <div className="navbar-logo" onClick={handleLogoClick}>
-          <img src={logo} alt="UNI Dreams Solutions" width={70} height={70} />
-          {/* <span>UNI Dream Solutions</span> */}
-        </div>
+        <button
+          className="navbar-logo"
+          onClick={handleLogoClick}
+          aria-label="Go to top"
+          style={{ background: 'none', border: 'none', padding: 0, cursor: 'pointer' }}
+        >
+          <img src={logo} alt="UNI Dream Solutions logo" width={70} height={70} />
+        </button>
 
-        <div className={`navbar-menu ${isOpen ? 'active' : ''}`}>
+        <div id="primary-navigation" className={`navbar-menu ${isOpen ? 'active' : ''}`} role="menubar" aria-label="Primary navigation">
           <button 
             className={`navbar-link ${activeSection === 'home' ? 'active' : ''}`}
             onClick={() => scrollToSection('home')}
+            role="menuitem"
           >
             Home
           </button>
           <button 
             className={`navbar-link ${activeSection === 'services' ? 'active' : ''}`}
             onClick={() => scrollToSection('services')}
+            role="menuitem"
           >
             Services
           </button>
           <button 
             className={`navbar-link ${activeSection === 'about' ? 'active' : ''}`}
             onClick={() => scrollToSection('about')}
+            role="menuitem"
           >
             About
           </button>
           <button 
             className={`navbar-link ${activeSection === 'contact' ? 'active' : ''}`}
             onClick={() => scrollToSection('contact')}
+            role="menuitem"
           >
             Contact
           </button>
-          
-          {/* <button 
-            className="navbar-cta"
-            onClick={() => scrollToSection('contact')}
-          >
-            Get Started
-          </button> */}
         </div>
 
-        <div className={`navbar-toggle ${isOpen ? 'active' : ''}`} onClick={toggleMenu}>
+        <button 
+          className={`navbar-toggle ${isOpen ? 'active' : ''}`} 
+          onClick={toggleMenu}
+          aria-expanded={isOpen}
+          aria-controls="primary-navigation"
+          aria-label={isOpen ? 'Close menu' : 'Open menu'}
+        >
           <span></span>
           <span></span>
           <span></span>
-        </div>
+        </button>
       </div>
     </nav>
   );

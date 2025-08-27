@@ -6,16 +6,23 @@ import ContactUs from '../components/ContactUs';
 import SimpleFooter from '../components/SimpleFooter';
 
 const Home = () => {
-      const scrollToSection = (sectionId) => {
+    const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      const navHeight = 80;
+      const elementPosition = element.offsetTop - navHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
     }
+    // closeMenu();
   };
     return (
         <div className="home">
             {/* Hero Section */}
-            <section id="home" className="hero-section">
+            <section id="home" className="hero-section" aria-label="Hero">
                 <div className="hero-background">
                     <div className="hero-gradient"></div>
                     <div className="hero-pattern"></div>
@@ -42,14 +49,25 @@ Join us on a journey of empowerment and discovery.
                             </p>
                             
                             <div className="hero-actions fade-in-up delay-400">
-                                <a href="#services" className="btn btn-primary btn-xl hero-cta">
+                                <a href="#" className="btn btn-primary btn-xl hero-cta" onClick={() => scrollToSection('services')}>
                                     <span className="btn-text">Services</span>
-<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevrons-down-icon lucide-chevrons-down"><path d="m7 6 5 5 5-5"/><path d="m7 13 5 5 5-5"/></svg>
+                                    <span className="btn-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <path d="m9 18 6-6-6-6"/>
+                                        </svg>
+                                    </span>
+                                    <div className="btn-glow"></div>
                                 </a>
                                 
                                 <a href="#about" className="btn btn-outline btn-xl hero-secondary">
-                                    <span className="btn-text">Know More</span>
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-square-arrow-out-down-right-icon lucide-square-arrow-out-down-right"><path d="M21 11V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h6"/><path d="m21 21-9-9"/><path d="M21 15v6h-6"/></svg>
+                                    <span className="btn-text">Learn More</span>
+                                    <span className="btn-icon">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                                            <circle cx="12" cy="12" r="10"/>
+                                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+                                            <path d="M12 17h.01"/>
+                                        </svg>
+                                    </span>
                                 </a>
                             </div>
                         </div>
@@ -104,30 +122,25 @@ Join us on a journey of empowerment and discovery.
                                 </div> */}
                             </div>
                         </div>
-                       
                     </div>
-                     
                 </div>
-                <div className="scroll-down" onClick={() => scrollToSection('services')}>
-        <svg width="32" height="54" viewBox="0 0 32 54" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <rect x="1.5" y="1.5" width="29" height="51" rx="14.5" stroke="#00fff7" strokeWidth="3"/>
-          <circle className="mouse-wheel" cx="16" cy="14" r="3" fill="#00fff7"/>
-        </svg>
-      </div>
             </section>
 
             {/* Services Section */}
-            <div id="services">
+            <div id="services" role="region" aria-labelledby="services-heading">
+                <h2 id="services-heading" className="sr-only" style={{position:'absolute',left:'-10000px',width:'1px',height:'1px',overflow:'hidden'}}>Services</h2>
                 <ServicesSection />
             </div>
             
             {/* About Section */}
-            <div id="about">
+            <div id="about" role="region" aria-labelledby="about-heading">
+                <h2 id="about-heading" className="sr-only" style={{position:'absolute',left:'-10000px',width:'1px',height:'1px',overflow:'hidden'}}>About</h2>
                 <AboutCompany />
             </div>
             
             {/* Contact Us Section */}
-            <div id="contact">
+            <div id="contact" role="region" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" className="sr-only" style={{position:'absolute',left:'-10000px',width:'1px',height:'1px',overflow:'hidden'}}>Contact</h2>
                 <ContactUs />
             </div>
             

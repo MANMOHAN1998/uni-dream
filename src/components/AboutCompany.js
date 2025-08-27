@@ -1,6 +1,5 @@
 import React from 'react';
 import './AboutCompany.css';
-import aboutImg from './2965738.png'
 const AboutCompany = () => {
     return (
         <section id="about" className="about-section">
@@ -19,28 +18,10 @@ const AboutCompany = () => {
                     </p>
                 </div>
 
-
                 {/* Hero Story Section */}
                 <div className="hero-story">
-                    <div className='story-img-container'>
-                <img src={aboutImg} alt="About Hero" className="about-img" width={600} height={400} />
-                <div className="story-left">
-                            <div className="story-card main-story">
-                                <div className="story-icon">
-                                    <span>🎯</span>
-                                </div>
-                                <h3>Our Vision at UNI Dream Solutions</h3>
-                                <p>
-                                    Our mission is to be the <strong>trusted partner</strong> of educational institutions in their journey towards academic excellence. We are committed to providing innovative, scalable, and cost-effective solutions that address the challenges faced by educators and administrators alike.
-                                </p>
-                                <p>
-                                    With a focus on leveraging technology to drive efficiency, engagement, and student success, we strive to <strong>empower educational institutions</strong> to achieve their goals and fulfill their mission of providing quality education to all.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
                     <div className="story-content">
-                        {/* <div className="story-left">
+                        <div className="story-left">
                             <div className="story-card main-story">
                                 <div className="story-icon">
                                     <span>🎯</span>
@@ -53,13 +34,9 @@ const AboutCompany = () => {
                                     With a focus on leveraging technology to drive efficiency, engagement, and student success, we strive to <strong>empower educational institutions</strong> to achieve their goals and fulfill their mission of providing quality education to all.
                                 </p>
                             </div>
-                        </div> */}
-                        <div className="story-right">
-                            
                         </div>
-                    </div>
-                </div>
-                <div className="impact-metrics">
+                        <div className="story-right">
+                            <div className="impact-metrics">
                                 <div className="metric-item">
                                     <div className="metric-number">20+</div>
                                     <div className="metric-label">Happy Clients</div>
@@ -77,6 +54,10 @@ const AboutCompany = () => {
                                     <div className="metric-label">Dedicated Support</div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+
                 {/* Core Values */}
                 <div className="core-values">
                     <h3 className="section-heading">Our Core Values Drive Everything We Do</h3>
