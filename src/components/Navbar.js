@@ -81,7 +81,7 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'navbar-scrolled' : ''} ${hidden ? 'navbar-hidden' : ''}`}>
       <div className="navbar-container">
         <div className="navbar-logo" onClick={handleLogoClick}>
-          <img src={logo} alt="Uni Dreams Solutions" width={70} height={70} />
+          <img src={logo} alt="UNI Dreams Solutions" width={70} height={70} />
           {/* <span>UNI Dream Solutions</span> */}
         </div>
 

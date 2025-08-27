@@ -66,7 +66,7 @@ Join us on a journey of empowerment and discovery.
                                 </div>
                                 
                                 {/* Floating Cards */}
-                                <div className="hero-floating-card card-1">
+                                {/* <div className="hero-floating-card card-1">
                                     <div className="floating-icon">📊</div>
                                     <div className="floating-content">
                                         <div className="floating-title">Live Progress</div>
@@ -101,7 +101,7 @@ Join us on a journey of empowerment and discovery.
                                             <span className="avatar-count">+2.5K</span>
                                         </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                        

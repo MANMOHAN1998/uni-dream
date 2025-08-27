@@ -242,7 +242,7 @@ const ContactUs = () => {
                   <div className="detail-content">
                     <span className="detail-label">Phone</span>
                     <a href="tel:+918287109325" className="detail-value">
-                      +91(828) 710-9325
+                      +918287109325
                     </a>
                   </div>
                 </div>

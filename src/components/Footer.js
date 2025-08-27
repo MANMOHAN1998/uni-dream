@@ -13,7 +13,7 @@ const Footer = () => {
               <div className="footer-logo">
                 <div className="logo-wrapper">
                   <div className="logo-icon">
-                    <img src={logo} alt="Uni Dreams Solutions" width={70} height={70} /> 
+                    <img src={logo} alt="UNI Dreams Solutions" width={70} height={70} /> 
                   </div>
                   <div className="logo-text-wrapper">
                     <span className="logo-text">UNI Dream Solutions</span>
@@ -73,7 +73,7 @@ const Footer = () => {
                 </div>
                 <div className="contact-item">
                   <span className="contact-icon">📞</span>
-                  <span className="contact-value">+91(828) 710-9325</span>
+                  <span className="contact-value">+918287109325</span>
                 </div>
               </div>
               <div className="contact-process">
